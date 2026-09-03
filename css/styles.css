@@ -60,18 +60,17 @@ nav{background:rgba(250,247,242,0.82);backdrop-filter:blur(16px);-webkit-backdro
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,204,186,0.28) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(196,168,130,0.15) 0%,transparent 60%);pointer-events:none}
 .hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(92,122,94,0.07) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:pulse 6s ease-in-out infinite;pointer-events:none;will-change:transform}
 @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.6}50%{transform:translate(-50%,-50%) scale(1.08);opacity:1}}
-.hero-deco-ring{position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(196,168,130,0.15);top:50%;left:50%;transform:translate(-50%,-50%);animation:spin-slow 30s linear infinite;pointer-events:none;will-change:transform}
-.hero-deco-ring::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;border-radius:50%;background:var(--earth);opacity:0.5;transform:translateX(-50%)}
-@keyframes spin-slow{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 .hero-inner{position:relative;z-index:2}
-.hero-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage-dark);font-weight:500;margin-bottom:1.4rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;animation:fadeDown 1s ease both}
-.brand-mark{margin-bottom:2rem;animation:fadeUp 1s ease both}
-.brand-logo{max-width:min(493px,70vw);width:100%;height:auto;display:block;margin:0 auto}
-.brand-monogram-mobile{display:none}
+.hero-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--earth-dark);font-weight:500;margin-bottom:1.1rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;animation:fadeDown 1s ease both}
+.brand-mark{margin-bottom:1.5rem;animation:fadeUp 1s ease both}
+.brand-logo{max-width:min(200px,42vw);width:100%;height:auto;display:block;margin:0 auto}
 .brand-location{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--earth-dark);opacity:0.75;margin-top:0.75rem;font-weight:500}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-.hero-h1{font-family:var(--fd);font-size:5rem;font-weight:300;line-height:1.08;margin-bottom:0.85rem;animation:fadeUp 1s 0.15s ease both}
+.hero-h1{font-family:var(--fd);font-size:clamp(2.4rem,6vw,5rem);font-weight:300;font-variant:small-caps;letter-spacing:0.01em;line-height:1.08;margin-bottom:0.6rem;animation:fadeUp 1s 0.15s ease both}
 .hero-h1 em{font-style:italic;color:var(--sage-dark)}
+.hero-divider{display:flex;align-items:center;justify-content:center;gap:0.75rem;width:170px;margin:0 auto 1.4rem;animation:fadeUp 1s 0.2s ease both}
+.hero-divider span{flex:1;height:1px;background:var(--earth);opacity:0.45}
+.hero-divider i{font-style:normal;font-size:0.65rem;color:var(--charcoal);opacity:0.7}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero-sub{font-family:var(--fd);font-size:1.3rem;font-style:italic;color:var(--earth-dark);margin-bottom:1.8rem;font-weight:300;animation:fadeUp 1s 0.3s ease both}
 .hero-body{font-size:0.96rem;opacity:0.8;max-width:580px;margin:0 auto 2.2rem;line-height:1.85;animation:fadeUp 1s 0.45s ease both}
@@ -261,24 +260,9 @@ footer::before{content:'';position:absolute;bottom:-60px;left:50%;transform:tran
   /* Hide the in-drawer lang toggle — we want language visible immediately, not buried */
   .mobile-lang-toggle{display:none}
 
-  /* HERO — mobile: drop logo image, show typographic name like editorial */
+  /* HERO — mobile: monogram + typographic name, matches desktop */
   .hero{padding:3.5rem 1.25rem 3rem}
-  .brand-mark{margin-bottom:1.75rem;text-align:center;display:flex;flex-direction:column;align-items:center}
-  .brand-logo{display:none}
-  .brand-monogram-mobile{display:block;width:40%;max-width:180px;height:auto;margin:0 auto 1rem;order:-1}
-  .brand-mark::before{
-    content:attr(data-en-name);
-    display:block;
-    font-family:var(--fd);
-    font-size:clamp(1.6rem,7.5vw,2.4rem);
-    font-weight:400;
-    line-height:1.05;
-    color:var(--charcoal);
-    margin-bottom:0.9rem;
-    letter-spacing:-0.005em;
-    white-space:nowrap;
-  }
-  html[lang="es"] .brand-mark::before{content:attr(data-es-name)}
+  .brand-mark{margin-bottom:1.25rem;text-align:center;display:flex;flex-direction:column;align-items:center}
   .brand-location{font-size:0.58rem;letter-spacing:0.22em;margin-top:0;margin-bottom:0.75rem}
   .hero-body{font-size:0.92rem;line-height:1.75;padding:0 0.25rem;margin-bottom:1.75rem}
   .hero-stats{gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
@@ -286,7 +270,6 @@ footer::before{content:'';position:absolute;bottom:-60px;left:50%;transform:tran
   .hero-stat-n{font-size:1.75rem}
   .hero-stat-l{font-size:0.58rem;letter-spacing:0.16em}
   .hero-orb{width:260px;height:260px;opacity:0.7}
-  .hero-deco-ring{width:260px;height:260px}
   .btn-p{padding:0.95rem 2rem;font-size:0.7rem;width:auto;display:inline-block}
 
   /* CREDENTIALS */
